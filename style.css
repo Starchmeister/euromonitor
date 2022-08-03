@@ -1,0 +1,159 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(195, 195, 195);
+  
+ 
+}
+
+/* 
+- Above: The asterix called by the function represent the body
+the margin left/right/bottom/top were all simultaneously set to 0px as we want it to fill
+the entire screen
+*/
+
+.main {
+  margin: 40px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+/* 
+- The margin is set to 40px, margin is the space between the container and it's parent, the parent of the main
+container is the actual screen/body, so giving the margin a value of 40px constrains it 40px's across all directions
+top/bottom/left/right within the main screen/body.
+
+- If the height is not specified the body will automatically wrap the main container, effecting the margin perceived by the viewer
+
+- The height is set to 100vh(vh=viewport height) which represents the viewable screen's height. 
+this also assists with responsiveness instead of using pixels to difine the height, as the content will 
+fill any screens height thus making it responsive accross screens
+
+- Display is set to flex(the items within this flex container will grow or shrink to fit the space available
+in its flex container.
+
+- I set the flex direction to columns as the content is split into containers the top,middle and bottom thus
+using flex column will flex all the items on the vertical cross proportionately
+
+- Justify content gives you the power to control the available space in the container to align items;
+space-between is a property value of justify-content that takes all the available space and places it inbetween the flex items
+*/
+
+.Top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  background-color: white;
+}
+
+/*
+- The Top container holds 2 containers with classes Top-left and Top-right;
+align-content allows you to warp and align the flex lines; flex start is a property value of align-content
+it packs all the lines to the start of the container of which is always on the left of the screen
+using this property value aloowa us to play with the two squares in the top container as shown below
+
+*/
+
+.Top-left {
+  background-color: #57ACD3;
+  height: 80px;
+  width: 80px;   
+}
+
+/*
+- Align-self property was not applied here on the first square/container as the parent container already set its value to
+flex-start and packed it to the left of its container
+*/
+
+.Top-right {
+  align-self: flex-end;
+  background-color: #43647C;
+  height: 80px;
+  width: 80px;
+}
+
+/*
+- Align-self property was applied on the second square/container as the parent container had set it to flex start
+and so to redefine its property value we used flex-end which packs the container itself(align itself) to the end(very right) of its parents container 
+*/
+
+.Middle {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  align-content: center;
+  justify-content: center;
+ 
+}
+
+/* align content is set to the center becuase the intructions were to ensure that the three squares 
+ are aligned vertically and horizonatally at the center of the  viewport */
+
+.Middle-left {
+  z-index: 0;
+  background-color: #EAEEEF;
+  height: 80px;
+  width: 80px;
+  margin-right: -40px;
+  margin-top: -40px;
+  
+}
+
+.Middle-center {
+  z-index: 1;
+  background-color:#EEA149;
+  height: 80px;
+  width: 80px;
+  
+  
+}
+
+.Middle-right {
+  z-index: 0;
+  background-color: #EAEEEF;
+  height: 80px;
+  width: 80px;
+  margin-left: -40px;
+  margin-top: 40px;
+}
+
+
+.Bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  background-color: white;
+}
+
+/* Same pricinples as those applied for the top section, only difference are then alternating colors of the sqaures*/
+
+.Bottom-left {
+  background-color: #43647C;
+  height: 80px;
+  width: 80px;
+  
+}
+
+.Bottom-right {
+  align-self: flex-end;
+  background-color: #57ACD3;
+  height: 80px;
+  width: 80px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.Middle-left {margin-right: -80px; margin-top: 80px;}
+.Middle-right { margin-left: -80px; margin-top: -80px;}
+}
+
+/* Responisveness is key for smaller devices like cellphone setting the max-width to 600px, basically set all the rules under the media query for
+ that specific element to apply untill the 600px frame is broken, of whihc adter it reverts back to its original or higher defined quesries*/
+
+
